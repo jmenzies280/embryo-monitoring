@@ -19,7 +19,7 @@ This is a small video system to monitor the development of Drosophila embryos.
 |1|3D printed embryo grid|initially printed in black PLA||
 |18|M3 5mm screws| holds maker beams and other bits together||
 |14|M3 nuts|used together with screws||
-|1|ELP USB camera|||
+|1|ELP USB camera|720P UVC USB Camera Module OV9712 Black/White Monochrome MJPEG 30fps 6mm Lens|https://www.ebay.co.uk/itm/324378752856|
 |1|infrared led strip|for illumination from bottom||
 |1|potentiometer|to adjust the brightness of the leds||
 |1|12V power supply|power led strip||
