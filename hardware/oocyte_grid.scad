@@ -16,6 +16,11 @@ platez = 2;
 
 screwD = 3;
 screwH = 10;
+
+legL=40;
+legD=8;
+
+
 tol = 0.1;
 $fn=20;
 module grid(){
@@ -28,6 +33,7 @@ module grid(){
     }//end for x
 }//end module
 
+module plate(){
 difference(){
 translate([0,0,-platez/2]){
 cube([platex,platey,platez],center=true);
@@ -35,6 +41,13 @@ cube([platex,platey,platez],center=true);
 translate([-(nwellsx*(wellx+interwell))/2,-(nwellsy*(welly+interwell))/2,-wellz+0.01]){
 grid();
 }//end translate
+}//end difference
+
+}//end module
+
+module grid_w_holes(){
+difference(){
+plate();
 
 translate([platex/2-screwD,platey/2-screwD,-screwH/2])
 cylinder(d=screwD,h=screwH);
@@ -51,3 +64,24 @@ cylinder(d=screwD+2*tol,h=screwH);
 }//end difference
 
 
+}//end module
+
+module grid_w_legs(){
+    plate();
+    
+    translate([platex/2-legD,platey/2-legD,-legL])
+cube([legD,legD,legL]);
+
+translate([-platex/2,platey/2-legD,-legL])
+cube([legD,legD,legL]);
+
+translate([-platex/2,-platey/2,-legL])
+cube([legD,legD,legL]);
+
+translate([platex/2-legD,-platey/2,-legL])
+cube([legD,legD,legL]);
+    
+    }
+
+//grid_w_legs();
+grid_w_holes();
