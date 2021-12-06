@@ -284,9 +284,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>121</cv:X>
-                        <cv:Y>84</cv:Y>
-                        <cv:Width>10</cv:Width>
+                        <cv:X>68</cv:X>
+                        <cv:Y>82</cv:Y>
+                        <cv:Width>11</cv:Width>
                         <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
@@ -378,9 +378,9 @@
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
                         <cv:X>18</cv:X>
-                        <cv:Y>80</cv:Y>
+                        <cv:Y>82</cv:Y>
                         <cv:Width>12</cv:Width>
-                        <cv:Height>30</cv:Height>
+                        <cv:Height>28</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
@@ -470,8 +470,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>68</cv:X>
-                        <cv:Y>82</cv:Y>
+                        <cv:X>121</cv:X>
+                        <cv:Y>84</cv:Y>
                         <cv:Width>10</cv:Width>
                         <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
@@ -1116,8 +1116,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>118</cv:X>
-                        <cv:Y>83</cv:Y>
+                        <cv:X>18</cv:X>
+                        <cv:Y>81</cv:Y>
                         <cv:Width>11</cv:Width>
                         <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
@@ -1209,10 +1209,10 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>18</cv:X>
-                        <cv:Y>81</cv:Y>
+                        <cv:X>118</cv:X>
+                        <cv:Y>85</cv:Y>
                         <cv:Width>11</cv:Width>
-                        <cv:Height>30</cv:Height>
+                        <cv:Height>28</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
@@ -1391,9 +1391,9 @@
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
                         <cv:X>62</cv:X>
-                        <cv:Y>86</cv:Y>
+                        <cv:Y>88</cv:Y>
                         <cv:Width>11</cv:Width>
-                        <cv:Height>32</cv:Height>
+                        <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
@@ -1762,9 +1762,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>110</cv:X>
+                        <cv:X>109</cv:X>
                         <cv:Y>16</cv:Y>
-                        <cv:Width>10</cv:Width>
+                        <cv:Width>11</cv:Width>
                         <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
@@ -1857,7 +1857,7 @@
                       <cv:RegionOfInterest>
                         <cv:X>111</cv:X>
                         <cv:Y>86</cv:Y>
-                        <cv:Width>11</cv:Width>
+                        <cv:Width>12</cv:Width>
                         <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
@@ -2036,8 +2036,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>13</cv:X>
-                        <cv:Y>88</cv:Y>
+                        <cv:X>63</cv:X>
+                        <cv:Y>90</cv:Y>
                         <cv:Width>13</cv:Width>
                         <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
@@ -2129,9 +2129,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>63</cv:X>
-                        <cv:Y>90</cv:Y>
-                        <cv:Width>13</cv:Width>
+                        <cv:X>12</cv:X>
+                        <cv:Y>88</cv:Y>
+                        <cv:Width>14</cv:Width>
                         <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
@@ -2225,7 +2225,7 @@
                         <cv:X>118</cv:X>
                         <cv:Y>18</cv:Y>
                         <cv:Width>11</cv:Width>
-                        <cv:Height>30</cv:Height>
+                        <cv:Height>32</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
@@ -2316,9 +2316,9 @@
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
                         <cv:X>114</cv:X>
-                        <cv:Y>92</cv:Y>
+                        <cv:Y>94</cv:Y>
                         <cv:Width>11</cv:Width>
-                        <cv:Height>32</cv:Height>
+                        <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
@@ -2501,10 +2501,10 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>62</cv:X>
+                        <cv:X>63</cv:X>
                         <cv:Y>18</cv:Y>
-                        <cv:Width>12</cv:Width>
-                        <cv:Height>28</cv:Height>
+                        <cv:Width>11</cv:Width>
+                        <cv:Height>30</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
@@ -2606,14 +2606,12 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Zip" />
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="io:CsvWriter">
-          <io:FileName>test2.csv</io:FileName>
-          <io:Append>false</io:Append>
-          <io:Overwrite>false</io:Overwrite>
-          <io:Suffix>Timestamp</io:Suffix>
-          <io:IncludeHeader>true</io:IncludeHeader>
-        </Builder>
+      <Expression xsi:type="io:CsvWriter">
+        <io:FileName>test2.csv</io:FileName>
+        <io:Append>false</io:Append>
+        <io:Overwrite>false</io:Overwrite>
+        <io:Suffix>Timestamp</io:Suffix>
+        <io:IncludeHeader>true</io:IncludeHeader>
       </Expression>
     </Nodes>
     <Edges>
