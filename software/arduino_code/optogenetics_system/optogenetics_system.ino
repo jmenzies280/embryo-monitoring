@@ -18,9 +18,10 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGBW + NEO_KHZ800);
 
 SerialCommand sCmd;     // The demo SerialCommand object
 
-int timeOff = 5;
-int timeOn = 1;
-int bright = 255;
+float timeOff = 5;
+float timeOn = 1;
+int brightRed = 0;
+int brightBlue = 0;
 int repetitions = 2;
 int flag=1;
 
@@ -31,6 +32,8 @@ Serial.begin(9600);
 strip.begin();
 strip.show(); // Initialize all pixels to 'off'
 
+sCmd.addCommand("blueon",    blue_on);
+sCmd.addCommand("blueoff",    blue_off);
 sCmd.addCommand("on",    start);
 sCmd.addCommand("config", config);
 //sCmd.addCommand("time",    time);
@@ -53,13 +56,34 @@ flag=0;
 
 }//end loop
 
-
-
+void blue_on(){
+  //int aNumber;
+  char *arg;
+  arg = sCmd.next();
+  if (arg != NULL) {
+    brightBlue = atoi(arg);    // Converts a char string to an integer
+  }
+    Serial.print("blue brightness: ");
+    Serial.println(brightBlue);
+    
+    for (int i = 0; i <= 12; i=i+1){
+      strip.setPixelColor(i, 0, brightRed, brightBlue,0);
+      }//end for
+    strip.show();
+  
+  
+}
+void blue_off(){
+      for (int i = 0; i <= 12; i=i+1){
+      strip.setPixelColor(i, 0, brightRed, 0,0);
+      }//end for
+    strip.show();
+  }
 void start(){
 int aNumber;
-  float timeOn;
-  float timeOff;
-  int bright;
+  //float timeOn;
+  //float timeOff;
+  //int brightRed;
   int repetitions;
   char *arg;
 
@@ -82,11 +106,11 @@ int aNumber;
   
   arg = sCmd.next();
   if (arg != NULL) {
-    bright = atoi(arg);
-    if (bright>255){bright=255;}
-    if (bright<0){bright=0;}
-    Serial.print("brightness: ");
-    Serial.println(bright);
+    brightRed = atoi(arg);
+    if (brightRed>255){brightRed=255;}
+    if (brightRed<0){brightRed=0;}
+    Serial.print("brightness red: ");
+    Serial.println(brightRed);
   }
 
   
@@ -102,19 +126,19 @@ int aNumber;
 
   for (int j = 0; j<repetitions; j=j+1){
     for (int i = 0; i <= 12; i=i+1){
-      strip.setPixelColor(i, 0, bright, 0,0);
+      strip.setPixelColor(i, 0, brightRed, brightBlue,0);
       }//end for
     strip.show();
     delay(timeOn*1000);
 
     for(int i=0; i<=12; i=i+1){
-      strip.setPixelColor(i, 0, 0, 0,0);
+      strip.setPixelColor(i, 0, 0, brightBlue,0);
       }//end for
     strip.show();
     delay(timeOff*1000);
 
   }//end j
-
+brightRed=0;
 }//end blink
 
 
@@ -210,7 +234,3 @@ void config() {
     Serial.println("No second argument");
   }
 }//end process command
-
-
-
-
