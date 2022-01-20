@@ -13,7 +13,7 @@ from scipy import signal
 #tell python where the data is located, based on the current folder
 filePath = "..//..//data//"
 # tell what is the file name we will open and load data
-fileName = "output2022-01-19T18_30_32.csv"
+fileName = "output2022-01-20T11_12_09.csv"
 
 
 
@@ -33,11 +33,11 @@ data.info()
 
 fig = plt.figure(figsize=[25,20])
 sub1=plt.subplot(2,1,1)
-plt.plot(data["topLeft.Item1.avgBright"][0:-1])
+plt.plot(data["bottomRight.Item3.avgBright"][0:-1])
 
 
 roll = 60
-start = 0
+start = 91000
 end = -1
 fig = plt.figure(figsize=[25,20])
 sub1=plt.subplot(2,1,1)

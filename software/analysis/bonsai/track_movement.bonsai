@@ -12,7 +12,7 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:FileCapture">
           <cv:FileName>C:\Users\Andre Maia Chagas\Desktop\M-Movie0005.avi</cv:FileName>
-          <cv:PlaybackRate>2000</cv:PlaybackRate>
+          <cv:PlaybackRate>0</cv:PlaybackRate>
           <cv:StartPosition>0</cv:StartPosition>
           <cv:PositionUnits>Frames</cv:PositionUnits>
           <cv:Loop>false</cv:Loop>
