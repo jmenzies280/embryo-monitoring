@@ -32,8 +32,6 @@ data.info()
 
 
 
-#grab every other column so that we are only using the average brightness in each ROI (discarding rolling average calculated with Bonsai)
-#allBright=data[data.columns[2::3]]
 allBright=data
 #calculate rolling average for each ROI and subtract that from brightness value
 roll = 60
