@@ -12,7 +12,7 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:FileCapture">
           <cv:FileName>C:\Users\Andre Maia Chagas\Desktop\22.03.02 (FS)\1242022-03-02T12_52_43.avi</cv:FileName>
-          <cv:PlaybackRate>1000</cv:PlaybackRate>
+          <cv:PlaybackRate>2000</cv:PlaybackRate>
           <cv:StartPosition>0</cv:StartPosition>
           <cv:PositionUnits>Frames</cv:PositionUnits>
           <cv:Loop>false</cv:Loop>
@@ -72,6 +72,88 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TL-index1</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>102</cv:X>
+                        <cv:Y>166</cv:Y>
+                        <cv:Width>19</cv:Width>
+                        <cv:Height>56</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
                 <Value>1</Value>
@@ -80,6 +162,88 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TL-index2</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>17</cv:X>
+                        <cv:Y>165</cv:Y>
+                        <cv:Width>19</cv:Width>
+                        <cv:Height>56</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
                 <Value>2</Value>
@@ -87,6 +251,88 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TL-index3</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>203</cv:X>
+                        <cv:Y>156</cv:Y>
+                        <cv:Width>18</cv:Width>
+                        <cv:Height>57</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
@@ -97,7 +343,7 @@
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index4</Name>
+              <Name>TL-index4</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -105,9 +351,6 @@
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -120,18 +363,12 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>45</cv:X>
-                        <cv:Y>24</cv:Y>
-                        <cv:Width>55</cv:Width>
-                        <cv:Height>43</cv:Height>
+                        <cv:X>198</cv:X>
+                        <cv:Y>33</cv:Y>
+                        <cv:Width>21</cv:Width>
+                        <cv:Height>59</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -140,7 +377,16 @@
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -160,265 +406,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index1</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>99</cv:X>
-                        <cv:Y>166</cv:Y>
-                        <cv:Width>25</cv:Width>
-                        <cv:Height>55</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index2</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>200</cv:X>
-                        <cv:Y>128</cv:Y>
-                        <cv:Width>36</cv:Width>
-                        <cv:Height>79</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index3</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>26</cv:X>
-                        <cv:Y>27</cv:Y>
-                        <cv:Width>63</cv:Width>
-                        <cv:Height>27</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -433,7 +433,7 @@ Item5 as Y
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index5</Name>
+              <Name>TL-index5</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -441,9 +441,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -456,18 +453,12 @@ Item5 as Y
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>9</cv:X>
-                        <cv:Y>23</cv:Y>
-                        <cv:Width>41</cv:Width>
-                        <cv:Height>59</cv:Height>
+                        <cv:X>97</cv:X>
+                        <cv:Y>27</cv:Y>
+                        <cv:Width>26</cv:Width>
+                        <cv:Height>54</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -476,7 +467,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -496,19 +496,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -523,7 +523,7 @@ Item5 as Y
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index6</Name>
+              <Name>TL-index6</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -531,9 +531,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -546,18 +543,12 @@ Item5 as Y
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>16</cv:X>
-                        <cv:Y>8</cv:Y>
-                        <cv:Width>27</cv:Width>
-                        <cv:Height>73</cv:Height>
+                        <cv:X>15</cv:X>
+                        <cv:Y>27</cv:Y>
+                        <cv:Width>22</cv:Width>
+                        <cv:Height>57</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -566,7 +557,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -586,19 +586,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -610,30 +610,30 @@ Item5 as Y
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
           <Edges>
+            <Edge From="0" To="4" Label="Source2" />
+            <Edge From="0" To="7" Label="Source2" />
             <Edge From="0" To="10" Label="Source2" />
-            <Edge From="0" To="11" Label="Source2" />
-            <Edge From="0" To="12" Label="Source2" />
             <Edge From="0" To="13" Label="Source2" />
             <Edge From="0" To="16" Label="Source2" />
             <Edge From="0" To="19" Label="Source2" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="1" To="4" Label="Source1" />
-            <Edge From="1" To="6" Label="Source1" />
+            <Edge From="1" To="5" Label="Source1" />
             <Edge From="1" To="8" Label="Source1" />
+            <Edge From="1" To="11" Label="Source1" />
             <Edge From="1" To="14" Label="Source1" />
             <Edge From="1" To="17" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="11" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="12" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="20" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="13" Label="Source1" />
+            <Edge From="7" To="20" Label="Source2" />
             <Edge From="8" To="9" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="20" Label="Source4" />
-            <Edge From="11" To="20" Label="Source1" />
-            <Edge From="12" To="20" Label="Source2" />
-            <Edge From="13" To="20" Label="Source3" />
+            <Edge From="10" To="20" Label="Source3" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="20" Label="Source4" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="20" Label="Source5" />
@@ -697,6 +697,88 @@ Item5 as Y
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TR-index1</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>185</cv:X>
+                        <cv:Y>179</cv:Y>
+                        <cv:Width>21</cv:Width>
+                        <cv:Height>54</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
                 <Value>1</Value>
@@ -705,6 +787,88 @@ Item5 as Y
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TR-index2</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>103</cv:X>
+                        <cv:Y>179</cv:Y>
+                        <cv:Width>26</cv:Width>
+                        <cv:Height>56</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
                 <Value>2</Value>
@@ -712,6 +876,88 @@ Item5 as Y
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TR-index3</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>12</cv:X>
+                        <cv:Y>174</cv:Y>
+                        <cv:Width>23</cv:Width>
+                        <cv:Height>58</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
@@ -731,9 +977,6 @@ Item5 as Y
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
                       <Property Name="RegionOfInterest" />
@@ -745,18 +988,12 @@ Item5 as Y
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>1</cv:X>
-                        <cv:Y>18</cv:Y>
-                        <cv:Width>33</cv:Width>
-                        <cv:Height>88</cv:Height>
+                        <cv:X>108</cv:X>
+                        <cv:Y>32</cv:Y>
+                        <cv:Width>21</cv:Width>
+                        <cv:Height>56</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -765,7 +1002,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -785,265 +1031,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index1</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>1</cv:X>
-                        <cv:Y>196</cv:Y>
-                        <cv:Width>28</cv:Width>
-                        <cv:Height>45</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index2</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>159</cv:X>
-                        <cv:Y>163</cv:Y>
-                        <cv:Width>20</cv:Width>
-                        <cv:Height>52</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index3</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>10</cv:X>
-                        <cv:Y>21</cv:Y>
-                        <cv:Width>23</cv:Width>
-                        <cv:Height>53</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -1067,9 +1067,6 @@ Item5 as Y
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
                       <Property Name="RegionOfInterest" />
@@ -1081,18 +1078,12 @@ Item5 as Y
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>155</cv:X>
-                        <cv:Y>1</cv:Y>
-                        <cv:Width>33</cv:Width>
-                        <cv:Height>12</cv:Height>
+                        <cv:X>191</cv:X>
+                        <cv:Y>28</cv:Y>
+                        <cv:Width>21</cv:Width>
+                        <cv:Height>56</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -1101,7 +1092,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -1121,19 +1121,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -1157,9 +1157,6 @@ Item5 as Y
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
                       <Property Name="RegionOfInterest" />
@@ -1173,16 +1170,10 @@ Item5 as Y
                       <cv:RegionOfInterest>
                         <cv:X>12</cv:X>
                         <cv:Y>17</cv:Y>
-                        <cv:Width>22</cv:Width>
+                        <cv:Width>21</cv:Width>
                         <cv:Height>56</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -1191,7 +1182,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -1211,19 +1211,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -1235,30 +1235,30 @@ Item5 as Y
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
           <Edges>
+            <Edge From="0" To="4" Label="Source2" />
+            <Edge From="0" To="7" Label="Source2" />
             <Edge From="0" To="10" Label="Source2" />
-            <Edge From="0" To="11" Label="Source2" />
-            <Edge From="0" To="12" Label="Source2" />
             <Edge From="0" To="13" Label="Source2" />
             <Edge From="0" To="16" Label="Source2" />
             <Edge From="0" To="19" Label="Source2" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="1" To="4" Label="Source1" />
-            <Edge From="1" To="6" Label="Source1" />
+            <Edge From="1" To="5" Label="Source1" />
             <Edge From="1" To="8" Label="Source1" />
+            <Edge From="1" To="11" Label="Source1" />
             <Edge From="1" To="14" Label="Source1" />
             <Edge From="1" To="17" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="11" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="12" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="20" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="13" Label="Source1" />
+            <Edge From="7" To="20" Label="Source2" />
             <Edge From="8" To="9" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="20" Label="Source4" />
-            <Edge From="11" To="20" Label="Source1" />
-            <Edge From="12" To="20" Label="Source2" />
-            <Edge From="13" To="20" Label="Source3" />
+            <Edge From="10" To="20" Label="Source3" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="20" Label="Source4" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="20" Label="Source5" />
@@ -1322,32 +1322,8 @@ Item5 as Y
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
-            <Expression xsi:type="Index">
-              <Operand xsi:type="IntProperty">
-                <Value>1</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:OnErrorResumeNext" />
-            </Expression>
-            <Expression xsi:type="Index">
-              <Operand xsi:type="IntProperty">
-                <Value>2</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:OnErrorResumeNext" />
-            </Expression>
-            <Expression xsi:type="Index">
-              <Operand xsi:type="IntProperty">
-                <Value>3</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:OnErrorResumeNext" />
-            </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index4</Name>
+              <Name>BL-index1</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -1356,8 +1332,95 @@ Item5 as Y
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
                   </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>177</cv:X>
+                        <cv:Y>164</cv:Y>
+                        <cv:Width>20</cv:Width>
+                        <cv:Height>58</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="Index">
+              <Operand xsi:type="IntProperty">
+                <Value>1</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:OnErrorResumeNext" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>BL-index2</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -1371,17 +1434,11 @@ Item5 as Y
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
                         <cv:X>94</cv:X>
-                        <cv:Y>23</cv:Y>
+                        <cv:Y>153</cv:Y>
                         <cv:Width>23</cv:Width>
-                        <cv:Height>58</cv:Height>
+                        <cv:Height>59</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -1390,7 +1447,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -1410,26 +1476,34 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="Index">
+              <Operand xsi:type="IntProperty">
+                <Value>2</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:OnErrorResumeNext" />
+            </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index1</Name>
+              <Name>BL-index3</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -1437,9 +1511,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -1452,101 +1523,13 @@ Item5 as Y
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>178</cv:X>
-                        <cv:Y>165</cv:Y>
-                        <cv:Width>21</cv:Width>
-                        <cv:Height>58</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index2</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>96</cv:X>
-                        <cv:Y>156</cv:Y>
-                        <cv:Width>24</cv:Width>
+                        <cv:X>4</cv:X>
+                        <cv:Y>153</cv:Y>
+                        <cv:Width>20</cv:Width>
                         <cv:Height>56</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
                   </Expression>
@@ -1554,7 +1537,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -1574,26 +1566,34 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="Index">
+              <Operand xsi:type="IntProperty">
+                <Value>3</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:OnErrorResumeNext" />
+            </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index3</Name>
+              <Name>BL-index4</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -1601,9 +1601,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -1617,17 +1614,11 @@ Item5 as Y
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
                         <cv:X>176</cv:X>
-                        <cv:Y>33</cv:Y>
-                        <cv:Width>22</cv:Width>
-                        <cv:Height>54</cv:Height>
+                        <cv:Y>31</cv:Y>
+                        <cv:Width>23</cv:Width>
+                        <cv:Height>55</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -1636,7 +1627,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -1656,19 +1656,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -1683,7 +1683,7 @@ Item5 as Y
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index5</Name>
+              <Name>BL-index5</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -1691,9 +1691,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -1706,18 +1703,12 @@ Item5 as Y
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>4</cv:X>
-                        <cv:Y>17</cv:Y>
-                        <cv:Width>33</cv:Width>
-                        <cv:Height>46</cv:Height>
+                        <cv:X>96</cv:X>
+                        <cv:Y>24</cv:Y>
+                        <cv:Width>21</cv:Width>
+                        <cv:Height>58</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -1726,7 +1717,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -1746,19 +1746,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -1773,7 +1773,7 @@ Item5 as Y
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index6</Name>
+              <Name>BL-index6</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -1781,9 +1781,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -1796,18 +1793,12 @@ Item5 as Y
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:Crop">
                       <cv:RegionOfInterest>
-                        <cv:X>5</cv:X>
-                        <cv:Y>16</cv:Y>
-                        <cv:Width>33</cv:Width>
-                        <cv:Height>48</cv:Height>
+                        <cv:X>8</cv:X>
+                        <cv:Y>15</cv:Y>
+                        <cv:Width>27</cv:Width>
+                        <cv:Height>52</cv:Height>
                       </cv:RegionOfInterest>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
@@ -1816,7 +1807,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -1836,19 +1836,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -1860,30 +1860,30 @@ Item5 as Y
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
           <Edges>
+            <Edge From="0" To="4" Label="Source2" />
+            <Edge From="0" To="7" Label="Source2" />
             <Edge From="0" To="10" Label="Source2" />
-            <Edge From="0" To="11" Label="Source2" />
-            <Edge From="0" To="12" Label="Source2" />
             <Edge From="0" To="13" Label="Source2" />
             <Edge From="0" To="16" Label="Source2" />
             <Edge From="0" To="19" Label="Source2" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="1" To="4" Label="Source1" />
-            <Edge From="1" To="6" Label="Source1" />
+            <Edge From="1" To="5" Label="Source1" />
             <Edge From="1" To="8" Label="Source1" />
+            <Edge From="1" To="11" Label="Source1" />
             <Edge From="1" To="14" Label="Source1" />
             <Edge From="1" To="17" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="11" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="12" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="20" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="13" Label="Source1" />
+            <Edge From="7" To="20" Label="Source2" />
             <Edge From="8" To="9" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="20" Label="Source4" />
-            <Edge From="11" To="20" Label="Source1" />
-            <Edge From="12" To="20" Label="Source2" />
-            <Edge From="13" To="20" Label="Source3" />
+            <Edge From="10" To="20" Label="Source3" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="20" Label="Source4" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="20" Label="Source5" />
@@ -1947,6 +1947,88 @@ Item5 as Y
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>BR-index1</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>0</cv:X>
+                        <cv:Y>0</cv:Y>
+                        <cv:Width>0</cv:Width>
+                        <cv:Height>0</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
                 <Value>1</Value>
@@ -1955,6 +2037,88 @@ Item5 as Y
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>BR-index2</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>0</cv:X>
+                        <cv:Y>0</cv:Y>
+                        <cv:Width>0</cv:Width>
+                        <cv:Height>0</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
                 <Value>2</Value>
@@ -1962,6 +2126,88 @@ Item5 as Y
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:OnErrorResumeNext" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>BR-index3</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Contour.Rect</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="RegionOfInterest" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source2</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>0</cv:X>
+                        <cv:Y>0</cv:Y>
+                        <cv:Width>0</cv:Width>
+                        <cv:Height>0</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:Average" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>new(
+Item1 as width,
+Item2 as height,
+Item3 as avgBright,
+Item4 as X,
+Item5 as Y
+
+)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
@@ -1972,7 +2218,7 @@ Item5 as Y
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index4</Name>
+              <Name>BR-index4</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -1980,9 +2226,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -2002,12 +2245,6 @@ Item5 as Y
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
                   </Expression>
@@ -2015,7 +2252,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -2035,265 +2281,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index1</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>0</cv:X>
-                        <cv:Y>0</cv:Y>
-                        <cv:Width>0</cv:Width>
-                        <cv:Height>0</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index2</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>0</cv:X>
-                        <cv:Y>0</cv:Y>
-                        <cv:Width>0</cv:Width>
-                        <cv:Height>0</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
-                  <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index3</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="RegionOfInterest" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source2</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="cv:Crop">
-                      <cv:RegionOfInterest>
-                        <cv:X>0</cv:X>
-                        <cv:Y>0</cv:Y>
-                        <cv:Width>0</cv:Width>
-                        <cv:Height>0</cv:Height>
-                      </cv:RegionOfInterest>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:Average" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val2</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>new(
-Item1 as width,
-Item2 as height,
-Item3 as avgBright,
-Item4 as X,
-Item5 as Y
-
-)</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -2308,7 +2308,7 @@ Item5 as Y
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index5</Name>
+              <Name>BR-index5</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -2316,9 +2316,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -2338,12 +2335,6 @@ Item5 as Y
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
                   </Expression>
@@ -2351,7 +2342,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -2371,19 +2371,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -2398,7 +2398,7 @@ Item5 as Y
               <Combinator xsi:type="rx:OnErrorResumeNext" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>TR-index6</Name>
+              <Name>BR-index6</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
@@ -2406,9 +2406,6 @@ Item5 as Y
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Contour.Rect</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Y</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -2428,12 +2425,6 @@ Item5 as Y
                       </cv:RegionOfInterest>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Width</Selector>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Height</Selector>
-                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:Average" />
                   </Expression>
@@ -2441,7 +2432,16 @@ Item5 as Y
                     <Selector>Val2</Selector>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>X</Selector>
+                    <Selector>RegionOfInterest.Y</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RegionOfInterest.X</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Height</Selector>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Width</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Zip" />
@@ -2461,19 +2461,19 @@ Item5 as Y
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="3" Label="Source1" />
-                  <Edge From="1" To="10" Label="Source1" />
-                  <Edge From="2" To="11" Label="Source5" />
-                  <Edge From="3" To="5" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="7" Label="Source1" />
+                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="7" Label="Source1" />
-                  <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="6" To="11" Label="Source1" />
-                  <Edge From="7" To="11" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="11" Label="Source3" />
-                  <Edge From="10" To="11" Label="Source4" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="11" Label="Source5" />
+                  <Edge From="8" To="11" Label="Source4" />
+                  <Edge From="9" To="11" Label="Source2" />
+                  <Edge From="10" To="11" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
                 </Edges>
@@ -2485,30 +2485,30 @@ Item5 as Y
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
           <Edges>
+            <Edge From="0" To="4" Label="Source2" />
+            <Edge From="0" To="7" Label="Source2" />
             <Edge From="0" To="10" Label="Source2" />
-            <Edge From="0" To="11" Label="Source2" />
-            <Edge From="0" To="12" Label="Source2" />
             <Edge From="0" To="13" Label="Source2" />
             <Edge From="0" To="16" Label="Source2" />
             <Edge From="0" To="19" Label="Source2" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="1" To="4" Label="Source1" />
-            <Edge From="1" To="6" Label="Source1" />
+            <Edge From="1" To="5" Label="Source1" />
             <Edge From="1" To="8" Label="Source1" />
+            <Edge From="1" To="11" Label="Source1" />
             <Edge From="1" To="14" Label="Source1" />
             <Edge From="1" To="17" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="11" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="12" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="20" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="13" Label="Source1" />
+            <Edge From="7" To="20" Label="Source2" />
             <Edge From="8" To="9" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="20" Label="Source4" />
-            <Edge From="11" To="20" Label="Source1" />
-            <Edge From="12" To="20" Label="Source2" />
-            <Edge From="13" To="20" Label="Source3" />
+            <Edge From="10" To="20" Label="Source3" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="20" Label="Source4" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="20" Label="Source5" />
@@ -2530,12 +2530,14 @@ Item3 as bottomLeft,
 Item4 as bottomRight
 )</scr:Expression>
       </Expression>
-      <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\Andre Maia Chagas\Documents\GitHub\sussex\embryo-monitoring\data\output.csv</io:FileName>
-        <io:Append>false</io:Append>
-        <io:Overwrite>false</io:Overwrite>
-        <io:Suffix>Timestamp</io:Suffix>
-        <io:IncludeHeader>true</io:IncludeHeader>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="io:CsvWriter">
+          <io:FileName>C:\Users\Andre Maia Chagas\Documents\GitHub\sussex\embryo-monitoring\data\output.csv</io:FileName>
+          <io:Append>false</io:Append>
+          <io:Overwrite>false</io:Overwrite>
+          <io:Suffix>Timestamp</io:Suffix>
+          <io:IncludeHeader>true</io:IncludeHeader>
+        </Builder>
       </Expression>
     </Nodes>
     <Edges>
