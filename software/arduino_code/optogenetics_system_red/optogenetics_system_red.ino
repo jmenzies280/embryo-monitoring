@@ -22,6 +22,7 @@ float timeOff = 5;
 float timeOn = 1;
 int brightRed = 0;
 int brightBlue = 0;
+int brightWhite = 0;
 int repetitions = 2;
 int flag=1;
 
@@ -32,6 +33,7 @@ Serial.begin(9600);
 strip.begin();
 strip.show(); // Initialize all pixels to 'off'
 
+sCmd.addCommand("white",    white);
 sCmd.addCommand("blueon",    blue_on);
 sCmd.addCommand("blueoff",    blue_off);
 sCmd.addCommand("on",    start);
@@ -56,6 +58,25 @@ flag=0;
 
 }//end loop
 
+void white(){
+  //int aNumber;
+  char *arg;
+  arg = sCmd.next();
+  if (arg != NULL) {
+    brightWhite = atoi(arg);    // Converts a char string to an integer
+  }
+    Serial.print("White brightness: ");
+    Serial.println(brightWhite);
+    
+    for (int i = 0; i <=  LED_COUNT; i=i+1){
+      strip.setPixelColor(i, 0, brightRed, brightBlue,brightWhite);
+      }//end for
+    strip.show();
+  
+  
+}
+
+
 void blue_on(){
   //int aNumber;
   char *arg;
@@ -66,7 +87,7 @@ void blue_on(){
     Serial.print("blue brightness: ");
     Serial.println(brightBlue);
     
-    for (int i = 0; i <= 12; i=i+1){
+    for (int i = 0; i <=  LED_COUNT; i=i+1){
       strip.setPixelColor(i, 0, brightRed, brightBlue,0);
       }//end for
     strip.show();
@@ -74,7 +95,7 @@ void blue_on(){
   
 }
 void blue_off(){
-      for (int i = 0; i <= 12; i=i+1){
+      for (int i = 0; i <=  LED_COUNT; i=i+1){
       strip.setPixelColor(i, 0, brightRed, 0,0);
       }//end for
     strip.show();
@@ -125,13 +146,13 @@ int aNumber;
   delay(1000);
 
   for (int j = 0; j<repetitions; j=j+1){
-    for (int i = 0; i <= 12; i=i+1){
+    for (int i = 0; i <=  LED_COUNT; i=i+1){
       strip.setPixelColor(i, 0, brightRed, brightBlue,0);
       }//end for
     strip.show();
     delay(timeOn*1000);
 
-    for(int i=0; i<=12; i=i+1){
+    for(int i=0; i<= LED_COUNT; i=i+1){
       strip.setPixelColor(i, 0, 0, brightBlue,0);
       }//end for
     strip.show();
